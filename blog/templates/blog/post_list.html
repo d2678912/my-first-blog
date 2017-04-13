@@ -5,22 +5,32 @@
     <title>Maximet</title>
 </head>
 <body>
+    <div>
+        <h1><a href="">Maximet page</a></h1>
+    </div>
+    <hr>
+    <p><b>Вид 1</b><br>
+        {{ posts }}</p>
 
-            <div>
-                <h1><a href="">Django Girls Blog</a></h1>
-            </div>
-
-            <div>
-                <p>published: 14.06.2014, 12:14</p>
-                <h2><a href="">My first post</a></h2>
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
-
-            <div>
-                <p>published: 14.06.2014, 12:14</p>
-                <h2><a href="">My second post</a></h2>
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-            </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <p><b>Вид 2</b></p>
+        {% for post in posts %}
+            {{ post }}
+        {% endfor %}
+    <hr>
+    <p><b>Вид 3</b></p>
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1><!-- пост тайтл с выделением как ссылки-->
+            <p>{{ post.text|linebreaksbr }}</p><!-- выведение текста с подгоном под формат параграфов-->
+        </div>
+    {% endfor %}
+    <hr>
 
 </body>
 </html>
